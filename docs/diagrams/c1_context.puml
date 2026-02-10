@@ -1,0 +1,17 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+title C1 - Diagrama de Contexto (Sistema ERP)
+
+Person(buyer, "Administrador de Compras", "Gestiona productos, proveedores y órdenes de compra.")
+Person(storekeeper, "Almacenista", "Registra recepciones y verifica entregas.")
+System(erp, "Sistema ERP", "Gestiona procesos del negocio: compras, inventario, facturación, etc.")
+System_Ext(accounting, "Sistema Contable Externo", "Contabilidad y finanzas.")
+System_Ext(email, "Servicio de Correo", "Notificaciones por email.")
+
+Rel(buyer, erp, "Gestiona compras", "HTTPS")
+Rel(storekeeper, erp, "Registra recepciones", "HTTPS")
+Rel(erp, accounting, "Envía datos contables", "API/JSON")
+Rel(erp, email, "Envía notificaciones", "SMTP/API")
+
+@enduml
