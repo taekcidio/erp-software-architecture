@@ -1,0 +1,18 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+title C2 - Diagrama de Contenedores (Arquitectura Monolítica simple)
+
+Person(admin, "Administrador de Compras")
+
+System_Boundary(erp, "Sistema ERP") {
+  Container(spa, "SPA Web", "React", "Interfaz web para usuarios (compras e inventario).")
+  Container(api, "API Monolítica", "Java, Spring Boot", "Lógica de negocio y servicios del ERP.")
+  ContainerDb(db, "Base de Datos", "PostgreSQL", "Persistencia de datos del ERP.")
+}
+
+Rel(admin, spa, "Usa", "HTTPS")
+Rel(spa, api, "Consume API", "HTTPS/JSON")
+Rel(api, db, "Lee/Escribe", "JDBC")
+
+@enduml
