@@ -11,7 +11,7 @@ Este repositorio contiene la documentación del taller de arquitectura de softwa
 - Documentación arc42 en Markdown
 
 ## Enlaces de entrega
-- Tablero Jira/Notion: (pega aquí tu enlace cuando lo tengas)
+- Tablero Jira: (https://valeriaespejo2006.atlassian.net/issues/?jql=ORDER+BY+created+DESC&atlOrigin=eyJpIjoiMTU3ZWU0NzhjMmM0NDgwOGFjOTViZTEzNmZlNjMwODYiLCJwIjoiaiJ9)
 - Documentación arc42: /docs (ver índice en docs/README.md)
 
 ## Evidencias en el repo
