@@ -1,0 +1,23 @@
+@startuml
+title Secuencia - Registrar Producto
+
+actor "Admin Compras" as admin
+participant "SPA Web" as spa
+participant "API ERP" as api
+database "DB PostgreSQL" as db
+
+admin -> spa: Diligencia formulario producto y envía
+activate spa
+spa -> api: POST /api/productos (JSON producto)
+activate api
+api -> api: Validar campos obligatorios
+api -> db: INSERT Producto
+activate db
+db --> api: OK (id_producto)
+deactivate db
+api --> spa: 201 Created (producto + id)
+deactivate api
+spa --> admin: Mensaje éxito + actualiza listado
+deactivate spa
+
+@enduml
